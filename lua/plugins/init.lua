@@ -131,6 +131,33 @@ return {
       require "configs.tabnine"
     end,
   },
+  {
+    "folke/noice.nvim",
+    lazy = false,
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require "configs.noice"
+    end,
+  },
+  {
+    "tpope/vim-surround",
+    lazy = false,
+  },
+  {
+    "tpope/vim-fugitive",
+    lazy = false,
+  },
+
   -- These are some examples, uncomment them if you want to see them work!
   -- {
   --   "neovim/nvim-lspconfig",

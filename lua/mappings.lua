@@ -110,3 +110,4 @@ end, { desc = "Telescope Live grep all" })
 
 -- Tabnine
 map("n", "<leader>ai", ":TabnineLogin<CR>", { desc = "Tabnine Login", silent = true })
+map("n", "<leader>ct", ":TabnineChat<CR>", { desc = "Tabnine Open Chat", silent = true })
