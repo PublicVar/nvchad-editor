@@ -116,6 +116,7 @@ return {
         "markdown_inline",
         "dockerfile",
         "gitignore",
+        "vimdoc",
       },
     },
   },
@@ -157,7 +158,30 @@ return {
     "tpope/vim-fugitive",
     lazy = false,
   },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = {
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "path" },
+        { name = "cmp_tabnine" },
+      },
+    },
 
+    dependencies = {
+      {
+        "tzachar/cmp-tabnine",
+        build = "./install.sh",
+        config = function()
+          local tabnine = require "cmp_tabnine.config"
+          tabnine:setup {} -- put your options here
+        end,
+      },
+    },
+  },
   -- These are some examples, uncomment them if you want to see them work!
   -- {
   --   "neovim/nvim-lspconfig",
