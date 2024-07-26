@@ -12,6 +12,8 @@ map("n", "<leader>fi", function()
 end, { desc = "General LSP formatting" })
 map("n", "<leader>fm", ":Telescope marks <CR>", { desc = "General Telescope markers" })
 map("n", "<C-q>", ":q!<CR>", { desc = "General Force quit", silent = true })
+map("n", "<leader>H", ":noh<CR>", { desc = "General Clear hightlight search", silent = true })
+
 -- Debugger
 map("n", "<leader>ds", function()
   require("dap").continue()
