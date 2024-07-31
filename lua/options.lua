@@ -8,9 +8,8 @@ local api = vim.api
 -- Don't wait end of the screen to scroll down/up
 o.scrolloff = 10
 g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/snippets"
-api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true })
 
-vim.treesitter.language.register("html", { "html", "htmldjango" })
+-- vim.treesitter.language.register("html", { "html", "htmldjango" })
 
 -- Generate UUID
 vim.cmd [[

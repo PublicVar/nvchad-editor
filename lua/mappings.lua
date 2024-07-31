@@ -4,6 +4,7 @@ local map = vim.keymap.set
 local nomap = vim.keymap.del
 
 -- General
+map("i", "jk", "<Esc>", { desc = "General Escape", noremap = true })
 map("n", "<leader>w", ":update <CR>", { desc = "General Save file" })
 map("n", "<leader>X", ":%bdelete <CR>", { desc = "General Close all buffers", silent = true })
 map("n", "<leader>uuid", ":GenerateUUID <CR>", { desc = "General Generate an uuid", silent = true })

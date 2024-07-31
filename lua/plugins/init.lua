@@ -1,4 +1,4 @@
-return {
+local plugins = {
   -- Disable this formatter that comes with nvchad 2.5 because
   -- already used formatters with Mason. For now, I don't know if
   -- it's useful nor if conflicts with mason.
@@ -49,12 +49,13 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
+    lazy = false,
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     opts = function()
       local opts = require "nvchad.configs.nvimtree"
       opts.view.adaptive_size = true
       return opts
     end,
-    lazy = false,
   },
   {
     "mfussenegger/nvim-dap",
@@ -121,6 +122,17 @@ return {
     },
   },
   {
+    "folke/noice.nvim",
+    lazy = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require "configs.noice"
+    end,
+  },
+  {
     "kshenoy/vim-signature",
     lazy = false,
   },
@@ -130,24 +142,6 @@ return {
     lazy = false,
     config = function()
       require "configs.tabnine"
-    end,
-  },
-  {
-    "folke/noice.nvim",
-    lazy = false,
-    opts = {
-      -- add any options here
-    },
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    },
-    config = function()
-      require "configs.noice"
     end,
   },
   {
@@ -182,32 +176,6 @@ return {
       },
     },
   },
-  -- These are some examples, uncomment them if you want to see them work!
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   config = function()
-  --     require("nvchad.configs.lspconfig").defaults()
-  --     require "configs.lspconfig"
-  --   end,
-  -- },
-  --
-  -- {
-  -- 	"williamboman/mason.nvim",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"lua-language-server", "stylua",
-  -- 			"html-lsp", "css-lsp" , "prettier"
-  -- 		},
-  -- 	},
-  -- },
-  --
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
 }
+
+return plugins
